@@ -15,15 +15,11 @@ export default class TransactionScreen extends Component {
   }
 
   getCameraPermissions = async domState => {
-    //const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    //const { status } = Permissions.askAsync(Permissions.CAMERA);
-    //const { status } = await Permissions.askAsync(Permissions);
-    //const { status } = await Permissions.askAsync(CAMERA);
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
 
     this.setState({
-      /*status === "granted" is true when user has granted permission
-          status === "granted" is false when user has not granted the permission
-        */
+        status === "granted" is true when user has granted permission
+        status === "granted" is false when user has not granted the permission
       hasCameraPermissions: status === "granted",
       domState: domState,
       scanned: false
@@ -54,15 +50,6 @@ export default class TransactionScreen extends Component {
         <Text style={styles.text}>
           {hasCameraPermissions ? scannedData : "Request for Camera Permission"}
         </Text>
-        
-        {/*
-          <TouchableOpacity
-            style={[styles.button, { marginTop: 25 }]}
-            onPress= this.getCameraPermissions("scanner")
-          >
-            <Text style={styles.buttonText}>Scan QR Code</Text>
-          </TouchableOpacity> 
-        */}
         {/*
           <TouchableOpacity
             style={[styles.button, { marginTop: 25 }]}
@@ -70,22 +57,7 @@ export default class TransactionScreen extends Component {
           >
             <Text style={styles.buttonText}>Scan QR Code</Text>
           </TouchableOpacity> 
-        */}
-        {/*
-          <TouchableOpacity
-            style={[styles.button, { marginTop: 25 }]}
-            onPress={() => this.getCameraPermissions()}
-          >
-            <Text style={styles.buttonText}>Scan QR Code</Text>
-          </TouchableOpacity> 
-        */}
-
-        {/*
-          <TouchableOpacity
-            style={[styles.button, { marginTop: 25 }]}
-            onPress={() => this.getCameraPermissions("scanner")}
-          />
-        */}
+        */}          
       </View>
     );
   }
